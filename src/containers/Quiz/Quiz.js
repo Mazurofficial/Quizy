@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import s from './Quiz.module.scss'
 import ActiveQuiz from "../../components/ActiveQuiz/ActiveQuiz";
 import FinishedQuiz from "../../components/FinishedQuiz/FinishedQuiz";
-import logo from "../../img/logo.svg"
 
 class Quiz extends Component{
     state = {

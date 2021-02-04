@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import s from './ActiveQuiz.module.scss'
 import AnswerList from "./AnsweraList/AnsweraList";
 

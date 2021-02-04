@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import s from './FinishedQuiz.module.scss'
 import Button from "../UI/Button/Button";
 import {Link} from "react-router-dom";
