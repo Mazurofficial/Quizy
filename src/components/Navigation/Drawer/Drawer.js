@@ -1,19 +1,34 @@
 import React,{Component,Fragment} from 'react'
 import s from './Drawer.module.scss'
 import Backdrop from "../Backdrop/Backdrop";
+import {NavLink} from "react-router-dom";
 
 const links = [
-    1,2,3
+    {to: '/', label: 'List', exact: true},
+    {to: '/auth', label: 'Authentication', exact: false},
+    {to: '/quiz-creator', label: 'Quiz-creator', exact: false}
 ]
 
 class Drawer extends Component{
+
+    // clickHandler = () => {
+    //     this.props.closeMenu()
+    // }
 
     renderLinks = () => {
         return(
             links.map((link,index)=>{
                 return(
                     <li key={index}>
-                        <a href="#">Link {link}</a>
+                        <NavLink
+                            to={link.to}
+                            exact={link.exact}
+                            activeClassName={s.active}
+                            //onClick={this.clickHandler}
+                            onClick={this.props.closeMenu}
+                        >
+                            {link.label }
+                        </NavLink>
                     </li>
                 )
             })
