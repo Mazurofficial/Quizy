@@ -2,7 +2,8 @@ import React,{Component} from 'react'
 import s from './Auth.module.scss'
 import Button from "../../components/UI/Button/Button";
 import Input from "../../components/UI/Input/Input";
-import is from 'is_js'
+import {validateControl} from "../../form/formFramework";
+import axios from "axios";
 
 export default class Auth extends Component{
 
@@ -36,37 +37,36 @@ export default class Auth extends Component{
         }
     }
 
-    loginHandler = () => {
-
+    loginHandler = async () => {
+        const authData = {
+            email: this.state.formControls.email.value,
+            password: this.state.formControls.password.value,
+            returnSecureToken: true
+        }
+        try {
+            const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCVKXfuva7q5TVw-xF3o79M92y-MUDZECE', authData)
+            console.log(response.data)
+        } catch (e){
+            console.log(e)
+        }
     }
 
-    registerHandler = () => {
-
+    registerHandler = async () => {
+        const authData = {
+            email: this.state.formControls.email.value,
+            password: this.state.formControls.password.value,
+            returnSecureToken: true
+        }
+        try {
+            const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCVKXfuva7q5TVw-xF3o79M92y-MUDZECE', authData)
+            console.log(response.data)
+        } catch (e){
+            console.log(e)
+        }
     }
 
     submitHandler = event => {
         event.preventDefault()
-    }
-
-    validateControl = (value, validation) => {
-        if(!validation){
-            return true
-        }
-
-        let isValid = true
-
-        if(validation.required){
-            isValid = value.trim(' ') !== '' && isValid
-
-        }
-        if(validation.email){
-            isValid = is.email(value) && isValid
-        }
-        if(validation.minLength){
-            isValid = value.length >= validation.minLength &&isValid
-        }
-
-        return isValid
     }
 
     onChangeHandler = (event, controlName) => {
@@ -76,7 +76,7 @@ export default class Auth extends Component{
 
         control.value = event.target.value
         control.touched = true
-        control.valid = this.validateControl(control.value,control.validation)
+        control.valid = validateControl(control.value,control.validation)
 
         formControls[controlName] = control
 

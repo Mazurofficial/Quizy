@@ -1,10 +1,10 @@
 .QuizCreator{
-  padding-top: 20px;
+  padding: 20px 0px;
   display: flex;
   align-items: center;
   flex-direction: column;
   background: #828282;
-  height: min(100vh);
+  height: min(90vh);
   h1{
     font-family: Arial, sans-serif;
     font-style: normal;
@@ -21,9 +21,9 @@
   }
   hr{
     margin: 10px 0px;
-    height: 3px;
     border-radius: 5px;
-    background:#fff;
+    background:#000;
+    width: 100%;
   }
   .btnblock{
     display: flex;

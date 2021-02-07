@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import s from './Layout.module.scss'
-import MenuToggle from "../../components/Navigation/MenuToggle/MenuToggle";
-import Drawer from "../../components/Navigation/Drawer/Drawer";
+import Header from "../../components/Header/Header";
 
 class Layout extends Component {
 
@@ -26,13 +25,10 @@ class Layout extends Component {
     render() {
         return(
             <div className={s.Layout}>
-                <Drawer
-                    isOpen={this.state.menu}
+                <Header
+                    menu={this.state.menu}
+                    toggleMenu={this.toggleMenuHandler}
                     closeMenu={this.closeMenuHandler}
-                />
-                <MenuToggle
-                    onToggle={this.toggleMenuHandler}
-                    isOpen={this.state.menu}
                 />
                 <main className={s.wrapper}>
                     {this.props.children}

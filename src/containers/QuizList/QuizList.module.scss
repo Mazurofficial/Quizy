@@ -1,10 +1,10 @@
 .QuizList{
-  padding-top: 20px;
+  padding: 20px 0px;
   display: flex;
   align-items: center;
   flex-direction: column;
   background: #828282;
-  height: min(100vh);
+  height: min(90vh);
   h1{
     font-family: Arial, sans-serif;
     font-style: normal;
@@ -12,6 +12,7 @@
     font-size: 30px;
     line-height: 28px;
     color: #FFFFFF;
+    text-align: center;
   }
   ul{
     display: flex;

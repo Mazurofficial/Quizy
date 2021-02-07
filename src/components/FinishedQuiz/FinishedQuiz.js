@@ -12,10 +12,10 @@ const FinishedQuiz = props =>{
 
         return total
     },0)
-
+debugger
     return(
         <div className={s.wrapper}>
-            <h1 className={s.isFinished}>is finished</h1>
+            <h1 className={s.isFinished}> {props.quiz.name} is finished</h1>
             <ul className={s.checkList}>
                 {props.quiz.map((quizItem,index) => {
                         let classes = [
