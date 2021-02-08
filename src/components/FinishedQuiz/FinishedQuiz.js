@@ -12,7 +12,6 @@ const FinishedQuiz = props =>{
 
         return total
     },0)
-debugger
     return(
         <div className={s.wrapper}>
             <h1 className={s.isFinished}> {props.quiz.name} is finished</h1>
